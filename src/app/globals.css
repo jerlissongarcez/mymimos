@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+/*
+  My Mimos — mundo visual "cartolina empilhada".
+  As cores saem do acervo real: o pink da logo, e os papeis que o atelie
+  realmente usa (azul-bebe, menta, kraft, rosa-algodao). Creme e papel de
+  peca, nunca fundo de pagina.
+*/
+@theme {
+  --color-tinta: #3a1020;
+  --color-tinta-forte: #260a15;
+  --color-rosa-tinta: #8e0f45;
+  --color-rosa: #e12a6e;
+  --color-rosa-acao: #d11f62;
+  --color-algodao: #f9c9da;
+  --color-algodao-claro: #fde7ef;
+  --color-azul: #bfdce6;
+  --color-menta: #cbdfc8;
+  --color-kraft: #d3b08c;
+  --color-creme: #fbf2ec;
+  --color-dourado: #b8862f;
+  --color-dourado-claro: #e3c06a;
+
+  --radius-peca: 14px;
+
+  /* sombra de papel colado: deslocamento curto + blur curto, nunca halo */
+  --shadow-peca: 3px 5px 0 rgb(58 16 32 / 0.07), 6px 12px 22px -8px rgb(58 16 32 / 0.28);
+  --shadow-peca-alta: 5px 8px 0 rgb(58 16 32 / 0.09), 12px 22px 38px -10px rgb(58 16 32 / 0.34);
+  --shadow-placa: 2px 3px 0 rgb(58 16 32 / 0.22), 4px 8px 16px -4px rgb(58 16 32 / 0.3);
+
+  --ease-assentar: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --font-display: var(--fonte-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--fonte-texto), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* o header fixo nao pode cobrir o alvo da ancora */
+    scroll-padding-top: 5.5rem;
+    -webkit-tap-highlight-color: rgb(225 42 110 / 0.18);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-rosa-tinta);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+    /* numerais consistentes em datas e contagens */
+    font-variant-numeric: tabular-nums lining-nums;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* superficies do navegador: tambem sao da marca */
+  ::selection {
+    background-color: var(--color-rosa);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-dourado-claro);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  /* o anel dourado some sobre o dourado; nesses pontos o foco vira tinta */
+  .foco-tinta:focus-visible {
+    outline-color: var(--color-tinta);
+  }
+
+  * {
+    scrollbar-color: var(--color-rosa) var(--color-rosa-tinta);
+    scrollbar-width: thin;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-rosa-tinta);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-rosa);
+    border: 3px solid var(--color-rosa-tinta);
+    border-radius: 99px;
+  }
+}
+
+@layer base {
+  /*
+    Revelação em scroll. O estado escondido só existe quando o JS marca o
+    elemento, então a página sem JavaScript nasce inteira e visível.
+  */
+  [data-revelar] {
+    transition:
+      opacity 0.6s var(--ease-assentar) var(--revelar-atraso, 0s),
+      transform 0.6s var(--ease-assentar) var(--revelar-atraso, 0s);
+  }
+
+  [data-revelar="pendente"] {
+    opacity: 0;
+    transform: translate(var(--revelar-x, 0), 22px);
+  }
+
+  [data-revelar="visivel"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer utilities {
+  /* fibra do papel: ruido fino, sem textura decorativa pesada */
+  .fibra {
+    position: relative;
+  }
+
+  .fibra::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: radial-gradient(rgb(58 16 32 / 0.05) 0.5px, transparent 0.6px);
+    background-size: 4px 4px;
+  }
+
+  .borda-peca {
+    box-shadow: var(--shadow-peca);
+  }
+
+  .borda-peca-alta {
+    box-shadow: var(--shadow-peca-alta);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes deslizarDaDireita {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes assentar {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
