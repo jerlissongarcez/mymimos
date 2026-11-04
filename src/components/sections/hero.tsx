@@ -23,6 +23,19 @@ export function Hero() {
           </span>
         </h1>
 
+        {/*
+          Assinatura da artesã: etiqueta de papel colada logo abaixo do título,
+          como quem assina a peça pronta. Fica dentro da coluna do texto, por
+          isso não encosta na foto colada à direita.
+        */}
+        <p className="bg-creme relative z-20 mt-5 flex w-fit rotate-[-1.7deg] items-center gap-3 rounded-[12px] px-4 py-2.5 shadow-[var(--shadow-placa)] sm:mt-6 sm:gap-3.5 sm:px-5 lg:py-3 lg:pr-6">
+          <span className="text-rosa-tinta/60 text-[0.6rem] font-bold tracking-[0.2em] uppercase sm:text-[0.66rem]">Por</span>
+          <span aria-hidden="true" className="bg-dourado/40 h-4 w-px shrink-0 sm:h-[18px]" />
+          <span className="font-display text-tinta text-[1.05rem] leading-none font-extrabold tracking-[-0.02em] sm:text-[1.2rem] lg:text-[1.3rem]">
+            {site.artesa}
+          </span>
+        </p>
+
         {/* Foto como peça de papel colada por cima do campo rosa. */}
         <div className="relative z-10 mt-10 md:absolute md:top-14 md:right-4 md:mt-0 md:w-[37%] lg:top-16 lg:right-6 lg:w-[35%] xl:top-12 xl:w-[34%]">
           <div className="relative mx-auto w-[min(21rem,86%)] rotate-[-2.4deg] sm:w-[min(25rem,70%)] md:w-full">
@@ -37,7 +50,7 @@ export function Hero() {
               />
             </div>
             <p className="bg-dourado-claro text-tinta borda-peca absolute -bottom-6 -left-3 max-w-[13rem] rotate-[2.6deg] rounded-[10px] px-3.5 py-2 text-[0.8rem] leading-snug font-semibold sm:-left-6">
-              Chá de bebê — flores, borboletas e placa em papel
+              Topo de bolo com tema Jardim Encantado, peças com efeito realista.
             </p>
           </div>
         </div>

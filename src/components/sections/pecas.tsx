@@ -12,7 +12,7 @@ export function Pecas() {
             O que sai do ateliê
           </h2>
           <p className="text-tinta/75 mt-4 text-[1.05rem] leading-relaxed">
-            Cinco frentes de trabalho, todas personalizadas peça a peça. Escolha por onde começar — ou mande a foto da inspiração
+            Peças únicas, personalizadas e confeccionada do jeitinho que você deseja e imagina. Escolha por onde começar — ou mande a foto da inspiração
             que você já tem.
           </p>
         </div>

@@ -7,6 +7,8 @@ export const site = {
   nome: 'My Mimos',
   /** Assinatura que vem impressa na logo oficial. */
   tagline: 'Personalizados que transformam momentos em lembranças',
+  /** Quem recorta e monta as pecas, e assina o ateliê. Informado pela dona. */
+  artesa: 'Karolyna Marques',
   cidade: 'São Luís',
   uf: 'MA',
   instagram: {

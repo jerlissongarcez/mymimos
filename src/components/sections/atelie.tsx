@@ -46,7 +46,7 @@ export function Atelie() {
       <div className="mx-auto grid max-w-[78rem] gap-12 lg:grid-cols-12 lg:gap-14">
         <div className="lg:col-span-5">
           <h2 className="font-display text-rosa-tinta text-[clamp(2.1rem,5.6vw,3.4rem)] leading-[0.98] font-extrabold">
-            Feito à mão quer dizer feito à mão
+            Feito à mão com carinho e dedicação.
           </h2>
           <p className="text-tinta/75 mt-4 max-w-[40ch] text-[1.05rem] leading-relaxed">
             {site.nome} é um ateliê de papelaria personalizada em {site.cidade}. As fotos desta página são de peças que já foram

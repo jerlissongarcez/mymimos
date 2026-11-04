@@ -31,21 +31,21 @@ export const categorias: Categoria[] = [
   {
     id: 'topos-de-bolo',
     nome: 'Topos e apliques de bolo',
-    descricao: 'O nome, a idade e o tema recortados em camadas de papel, montados peça por peça para subir no bolo.',
+    descricao: 'Trabalhamos desde os modelos mais simples aos modelos mais elaborados, com efeito 3D e efeito realista, seguindo sempre a inspiração enviada',
     ocasiaoSugerida: 'Mesversário, aniversário, chá revelação',
     capaId: 'topo-castelo-bela-fera',
   },
   {
     id: 'lembrancinhas',
     nome: 'Lembrancinhas e caixas',
-    descricao: 'Caixinhas montadas e decoradas no tema da festa, com o nome de quem recebe impresso na tampa.',
+    descricao: 'Caixinhas montadas e decoradas no tema da festa, com nome e idade personalizados. Temos lembrancinhas para todas as ocasiões.',
     ocasiaoSugerida: 'Chá de panela, festa infantil, batizado',
     capaId: 'caixa-bosque',
   },
   {
     id: 'cadernetas',
     nome: 'Cadernetas e livro do bebê',
-    descricao: 'Caderneta de saúde, caderneta de vacinação e livro do bebê com capa personalizada, elástico e tassel.',
+    descricao: 'Caderneta de vacinação e livro do bebê com capa personalizada e tema desejado.',
     ocasiaoSugerida: 'Chá de bebê, maternidade, presente de nascimento',
     capaId: 'caderneta-cerejeira',
   },
@@ -59,7 +59,7 @@ export const categorias: Categoria[] = [
   {
     id: 'decoracao',
     nome: 'Kits Festas',
-    descricao: 'Bandeirola com o nome, display de mesa e toppers de doce no mesmo tema do bolo.',
+    descricao: 'Bandeirola com o nome, display de mesa, topo de bolo e tags para cupcake e docinhos.',
     ocasiaoSugerida: 'Mesversário e festa em casa',
     capaId: 'decoracao-mesversario',
   },
