@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Bricolage_Grotesque, Hanken_Grotesk } from 'next/font/google'
 import { SiteFooter } from '@/components/layout/site-footer'
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         {children}
         <SiteFooter />
         <WhatsappFlutuante />
+        <Analytics />
       </body>
     </html>
   )
