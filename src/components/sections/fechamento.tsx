@@ -4,6 +4,7 @@ import { Acao } from '@/components/ui/acao'
 import { IconeInstagram } from '@/components/ui/icone-instagram'
 import { IconeWhatsapp } from '@/components/ui/icone-whatsapp'
 import { Marca } from '@/components/ui/marca'
+import { CORES_DOBRA, Recorte } from '@/components/ui/recorte'
 import { Revelar } from '@/components/ui/revelar'
 import { site } from '@/content/site'
 import { linkWhatsapp } from '@/lib/whatsapp'
@@ -16,8 +17,15 @@ export function Fechamento() {
         centralizado; a partir daí a ilustração vai para a direita, na altura
         do título. Ela é recorte sem fundo, então não ganha moldura de papel —
         fica apoiada na borda de baixo da cartolina, como peça colada por cima.
+
+        Por isso a tesoura desta dobra mora dentro da seção, e não entre as
+        seções como nas outras: a figura passa por cima do festão em vez de
+        ficar com uma tira rosa serrilhada sob os pés. Fora do vão dela o
+        recorte aparece igual ao das demais dobras.
       */}
-      <div className="relative mx-auto grid max-w-[72rem] items-end gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,auto)] lg:gap-x-10">
+      <Recorte acima={CORES_DOBRA.rosaAcao} abaixo={CORES_DOBRA.tintaForte} className="absolute inset-x-0 bottom-0 z-0" />
+
+      <div className="relative z-10 mx-auto grid max-w-[72rem] items-end gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,auto)] lg:gap-x-10">
         <div className="flex flex-col items-center pb-4 text-center lg:items-start lg:pb-24 lg:text-left">
           <Marca tamanho={92} className="borda-peca-alta" decorativa />
 
@@ -44,7 +52,7 @@ export function Fechamento() {
           </a>
         </div>
 
-        <Revelar lateral={20} className="justify-self-center lg:justify-self-end">
+        <Revelar lateral={20} variante="figura" className="justify-self-center lg:justify-self-end">
           <div className="relative w-[min(19rem,78vw)] sm:w-[min(21rem,56vw)] lg:w-[27rem] xl:w-[30rem]">
             {/* Clarão de papel atrás do recorte: separa a figura do rosa chapado. */}
             <div

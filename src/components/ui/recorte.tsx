@@ -1,3 +1,17 @@
+/*
+ * Cada seção é uma folha de cartolina; o recorte é a tesoura entre elas.
+ * A paleta mora aqui porque o ladrilho SVG precisa de cor literal — variável
+ * CSS não resolve dentro de uma data URI.
+ */
+export const CORES_DOBRA = {
+  rosaTinta: '#8e0f45',
+  algodao: '#f9c9da',
+  azul: '#bfdce6',
+  creme: '#fbf2ec',
+  rosaAcao: '#d11f62',
+  tintaForte: '#260a15',
+} as const
+
 type RecorteProps = {
   /** Cor da seção que termina aqui. */
   acima: string

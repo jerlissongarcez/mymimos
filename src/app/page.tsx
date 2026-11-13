@@ -4,17 +4,7 @@ import { Galeria } from '@/components/sections/galeria'
 import { Hero } from '@/components/sections/hero'
 import { Orcamento } from '@/components/sections/orcamento'
 import { Pecas } from '@/components/sections/pecas'
-import { Recorte } from '@/components/ui/recorte'
-
-/* Cada seção é uma folha de cartolina; o recorte é a tesoura entre elas. */
-const CORES = {
-  rosaTinta: '#8e0f45',
-  algodao: '#f9c9da',
-  azul: '#bfdce6',
-  creme: '#fbf2ec',
-  rosaAcao: '#d11f62',
-  tintaForte: '#260a15',
-} as const
+import { CORES_DOBRA as CORES, Recorte } from '@/components/ui/recorte'
 
 export default function Pagina() {
   return (
@@ -34,8 +24,8 @@ export default function Pagina() {
       <Orcamento />
       <Recorte acima={CORES.creme} abaixo={CORES.rosaAcao} />
 
+      {/* Fechamento traz a própria tesoura, por baixo da figura — ver a seção. */}
       <Fechamento />
-      <Recorte acima={CORES.rosaAcao} abaixo={CORES.tintaForte} />
     </main>
   )
 }

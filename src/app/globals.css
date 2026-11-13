@@ -129,6 +129,23 @@
     opacity: 1;
     transform: none;
   }
+
+  /*
+    Entrada de recorte grande: a figura sobe de trás da borda serrilhada e
+    assenta, com giro e escala minimos de peca colada a mao. O pivo fica
+    embaixo, onde a peca encosta na cartolina, entao a escala nao a descola
+    da dobra. Quem usa precisa recortar o excesso (overflow-hidden no pai),
+    senao o deslocamento de 48px vaza para a secao de baixo durante a entrada.
+  */
+  [data-revelar][data-variante="figura"] {
+    transform-origin: 50% 100%;
+    transition-duration: 0.9s, 0.9s;
+  }
+
+  [data-revelar="pendente"][data-variante="figura"] {
+    opacity: 0;
+    transform: translate(var(--revelar-x, 0), 48px) scale(0.94) rotate(2deg);
+  }
 }
 
 @layer utilities {

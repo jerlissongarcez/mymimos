@@ -11,6 +11,12 @@ type RevelarProps = {
   atraso?: number
   /** Deslocamento lateral, imitando a camada que assenta no lugar. */
   lateral?: number
+  /**
+   * `assentar` é a entrada discreta de bloco de texto e cartão.
+   * `figura` é a entrada de recorte grande: sobe de trás da borda, com giro e
+   * escala mínimos, como peça colada à mão. Pede um pai que recorte o excesso.
+   */
+  variante?: 'assentar' | 'figura'
   className?: string
 }
 
@@ -21,7 +27,7 @@ type RevelarProps = {
  * o estado escondido — então, sem JavaScript, antes da hidratação ou com
  * `prefers-reduced-motion`, a página continua legível por completo.
  */
-export function Revelar({ children, atraso = 0, lateral = 0, className }: RevelarProps) {
+export function Revelar({ children, atraso = 0, lateral = 0, variante = 'assentar', className }: RevelarProps) {
   const referencia = useRef<HTMLDivElement>(null)
 
   useEfeitoDeLayout(() => {
@@ -47,6 +53,7 @@ export function Revelar({ children, atraso = 0, lateral = 0, className }: Revela
   return (
     <div
       ref={referencia}
+      data-variante={variante}
       className={className}
       style={
         {
