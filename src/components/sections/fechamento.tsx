@@ -4,7 +4,7 @@ import { Acao } from '@/components/ui/acao'
 import { IconeInstagram } from '@/components/ui/icone-instagram'
 import { IconeWhatsapp } from '@/components/ui/icone-whatsapp'
 import { Marca } from '@/components/ui/marca'
-import { CORES_DOBRA, Recorte } from '@/components/ui/recorte'
+import { CORES_DOBRA, RecorteVazado } from '@/components/ui/recorte'
 import { Revelar } from '@/components/ui/revelar'
 import { site } from '@/content/site'
 import { linkWhatsapp } from '@/lib/whatsapp'
@@ -19,11 +19,12 @@ export function Fechamento() {
         fica apoiada na borda de baixo da cartolina, como peça colada por cima.
 
         Por isso a tesoura desta dobra mora dentro da seção, e não entre as
-        seções como nas outras: a figura passa por cima do festão em vez de
-        ficar com uma tira rosa serrilhada sob os pés. Fora do vão dela o
-        recorte aparece igual ao das demais dobras.
+        seções como nas outras — e vazada, por cima da figura: assim a base
+        dela termina na mesma ondulação do festão, em vez de num corte reto
+        sobre o escuro. O rosa acima da curva é o próprio fundo da seção, então
+        a dobra sai idêntica à das outras seções.
       */}
-      <Recorte acima={CORES_DOBRA.rosaAcao} abaixo={CORES_DOBRA.tintaForte} className="absolute inset-x-0 bottom-0 z-0" />
+      <RecorteVazado abaixo={CORES_DOBRA.tintaForte} className="absolute inset-x-0 bottom-0 z-20" />
 
       <div className="relative z-10 mx-auto grid max-w-[72rem] items-end gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,auto)] lg:gap-x-10">
         <div className="flex flex-col items-center pb-4 text-center lg:items-start lg:pb-24 lg:text-left">
